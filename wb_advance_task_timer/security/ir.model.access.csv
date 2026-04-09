@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_project_task_timer,access.project.task.timer,model_project_task_timer,base.group_user,1,1,1,1
+access_project_task_timer_wizard,access.project.task.timer.wizard,model_project_task_timer_wizard,base.group_user,1,1,1,1
+access_project_task_end_wizard,access.project.task.end.wizard,model_project_task_end_wizard,base.group_user,1,1,1,1

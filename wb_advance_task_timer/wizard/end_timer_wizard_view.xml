@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_project_task_end_wizard_form" model="ir.ui.view">
+        <field name="name">project.task.end.wizard.form</field>
+        <field name="model">project.task.end.wizard</field>
+        <field name="arch" type="xml">
+            <form string="End Task">
+                <group>
+                    <field name="task_timer_id" invisible="1"/>
+                    <group>
+                        <field string="Enter Task Description" name="task_description" style="font-weight: bold;"/>
+                    </group>
+
+                    <group>
+                        <field string="Started At" name="start_date"/>
+                        <field string="Ending At" name="end_date"/>
+                    </group>
+                    <group>
+                        <field string="Duration (Final)" name="duration" class="fw-bold text-primary"/>
+                    </group>
+                </group>
+                <footer>
+                    <button string="End Task" 
+                    name="action_end_task" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
