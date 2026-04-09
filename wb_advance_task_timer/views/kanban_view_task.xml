@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record model="ir.ui.view" id="view_task_kanban_timer">
+            <field name="name">project.task.kanban</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_kanban"/>
+            <field name="arch" type="xml">
+                <templates position="before">
+                    <field name="wb_is_timer_running"/>
+                    <field name="wb_timer_start_iso"/>
+                </templates>
+                <xpath expr="//footer" position="before">
+                    <div class="d-flex align-items-center gap-1 mt-1">
+                        <button type="object"
+                                name="action_timer_start"
+                                class="btn btn-primary btn-sm"
+                                invisible="wb_is_timer_running">
+                            Start
+                        </button>
+                        <button type="object"
+                                name="action_open_end_timer_wizard"
+                                class="btn btn-secondary btn-sm"
+                                invisible="not wb_is_timer_running">
+                            End
+                        </button>
+                        <div invisible="not wb_is_timer_running" class="ms-2">
+                        <t t-if="record.wb_is_timer_running.raw_value">
+                                <span
+                                    class="o_task_live_timer"
+                                    t-att-data-task-id="record.id.raw_value"
+                                    t-att-data-start="record.wb_timer_start_iso.raw_value">
+                                    00:00:00
+                                </span>
+                        </t>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+</odoo>

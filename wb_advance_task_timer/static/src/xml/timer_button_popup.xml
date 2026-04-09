@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <templates xml:space="preserve">
+        <t t-name="wb_advance_task_timer.TimerButton">
+            
+            <div class="o_task_timer_systray align-items-center mx-2" t-att-class="state.isVisible ? 'd-flex' : 'd-none'">
+                <button class="btn btn-sm btn-primary"
+                    t-if="!state.isRunning"
+                    t-on-click="onClick">
+                    Start
+                </button>
+                <div class="o_running_timer_details d-flex align-items-center ms-2" t-if="state.isRunning">
+                    <span class="fw-bold me-1" t-esc="state.taskName"/>
+                    <span class="fw-bold" t-esc="formatDuration(state.duration)"/>
+                </div>
+                <button class="btn btn-sm btn-primary ms-1" t-if="state.isRunning" t-on-click="onStop">
+                    <i class="fa fa-stop"/>
+                </button>
+            </div>
+        </t>
+    </templates>
